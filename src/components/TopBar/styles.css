@@ -1,0 +1,11 @@
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 240px;
+  height: 62px;
+  width: calc(100% - 240px);
+}
+
+.bg-gray {
+  background-color: var(--gray40);
+}
