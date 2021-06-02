@@ -1,0 +1,15 @@
+.sidebar__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  padding-bottom: 0;
+  list-style: none;
+  color: var(--gray10);
+}
+
+.sidebar__list__item a {
+  color: var(--grey10);
+  font-weight: bold;
+  text-decoration: none;
+}

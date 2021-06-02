@@ -6,22 +6,31 @@ export const spotifyContext = createContext();
 export const SpotifyContextProvider = ({ children }) => {
   const [newReleases, setNewReleases] = useState([]);
   const [featuredPlaylists, setFeaturedPlaylists] = useState([]);
+  const [userPlaylists, setUserPlaylists] = useState([]);
 
-  const fetchInitialData = (accessToken) => {
-    axios
-      .post(`${process.env.REACT_APP_SERVER_URL}/spotify/initial-data`, {
+  const fetchInitialData = async (accessToken) => {
+    const { data } = await axios.post(
+      `${process.env.REACT_APP_SERVER_URL}/spotify/initial-data`,
+      {
         accessToken,
-      })
-      .then((resp) => {
-        const { newReleases, featuredPlaylists } = resp.data;
-        setFeaturedPlaylists(featuredPlaylists.playlists.items);
-        setNewReleases(newReleases.items);
-      });
+      }
+    );
+
+    const { newReleases, featuredPlaylists, userPlaylists } = data;
+
+    setFeaturedPlaylists(featuredPlaylists.playlists.items);
+    setNewReleases(newReleases.items);
+    setUserPlaylists(userPlaylists);
   };
 
   return (
     <spotifyContext.Provider
-      value={{ newReleases, featuredPlaylists, fetchInitialData }}
+      value={{
+        newReleases,
+        featuredPlaylists,
+        userPlaylists,
+        fetchInitialData,
+      }}
     >
       {children}
     </spotifyContext.Provider>
