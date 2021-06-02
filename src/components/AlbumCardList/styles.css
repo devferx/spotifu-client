@@ -1,0 +1,32 @@
+.album-card-list {
+  margin: 32px 0 0 32px;
+}
+
+.album-card-list-title {
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.album-card-list-container {
+  display: flex;
+  width: 100%;
+  margin-top: 16px;
+  padding-bottom: 10px;
+  gap: 16px;
+  overflow-x: auto;
+}
+
+.album-card-list-container::-webkit-scrollbar {
+  background-color: var(--gray40);
+}
+
+.album-card-list-container::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+.album-card-list-container::-webkit-scrollbar-thumb {
+  background: var(--gray30);
+  border-radius: 10px;
+}
