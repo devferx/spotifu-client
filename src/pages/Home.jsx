@@ -1,32 +1,25 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useContext, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 
 import { Layout } from "../components/Layout";
 import { AlbumCardList } from "../components/AlbumCardList";
 
 import { useAuth } from "../hooks/useAuth";
+import { spotifyContext } from "../context/SpotifyContext.jsx";
 
 const code = new URLSearchParams(window.location.search).get("code");
 
 export const Home = () => {
-  const [newReleases, setNewReleases] = useState([]);
-  const [featuredPlaylists, setFeaturedPlaylists] = useState([]);
+  const { newReleases, featuredPlaylists, fetchInitialData } =
+    useContext(spotifyContext);
+
   const accessToken = useAuth(code);
 
   useEffect(() => {
     if (!accessToken) return;
 
-    axios
-      .post(`${process.env.REACT_APP_SERVER_URL}/spotify/initial-data`, {
-        accessToken,
-      })
-      .then((resp) => {
-        const { newReleases, featuredPlaylists } = resp.data;
-        setFeaturedPlaylists(featuredPlaylists.playlists.items);
-        console.log(featuredPlaylists.playlists.items);
-        setNewReleases(newReleases.items);
-      });
+    fetchInitialData(accessToken);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [accessToken]);
 
   if (!code) {
