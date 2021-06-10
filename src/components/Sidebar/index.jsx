@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 import { spotifyContext } from "../../context/SpotifyContext.jsx";
 import { SidebarPlaylistMenu } from "../SidebarPlaylistMenu";
@@ -13,14 +14,14 @@ export const Sidebar = () => {
       <img className="sidebar__logo" src={spotifuLogo} alt="logo spotifu" />
 
       <div className="sidebar__routes">
-        <a className="active" href="#">
+        <NavLink to="/home" activeClassName="active">
           <span className="icon icon--home" aria-label="Home Icon"></span> Home
-        </a>
+        </NavLink>
 
-        <a href="#">
+        <NavLink to="/search" activeClassName="active">
           <span className="icon icon--search" aria-label="Search Icon"></span>{" "}
           Buscar
-        </a>
+        </NavLink>
 
         <a href="#">
           <span

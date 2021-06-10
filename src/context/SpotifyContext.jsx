@@ -4,6 +4,7 @@ import axios from "axios";
 export const spotifyContext = createContext();
 
 export const SpotifyContextProvider = ({ children }) => {
+  const [userToken, setUserToken] = useState(false);
   const [newReleases, setNewReleases] = useState([]);
   const [featuredPlaylists, setFeaturedPlaylists] = useState([]);
   const [userPlaylists, setUserPlaylists] = useState([]);
@@ -26,9 +27,11 @@ export const SpotifyContextProvider = ({ children }) => {
   return (
     <spotifyContext.Provider
       value={{
+        userToken,
         newReleases,
         featuredPlaylists,
         userPlaylists,
+        setUserToken,
         fetchInitialData,
       }}
     >
