@@ -23,13 +23,13 @@ export const Sidebar = () => {
           Buscar
         </NavLink>
 
-        <a href="#">
+        <Link to="/">
           <span
             className="icon icon--credit-card"
             aria-label="Credit Card Icon"
           ></span>{" "}
           Premium
-        </a>
+        </Link>
       </div>
 
       <SidebarPlaylistMenu title="Tu Biblioteca" playlists={userPlaylists} />

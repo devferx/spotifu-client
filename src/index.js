@@ -2,11 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { SpotifyContextProvider } from "./context/SpotifyContext";
+import { AuthContextProvider } from "./context/AuthContext";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 
 const AppState = ({ children }) => (
-  <SpotifyContextProvider>{children}</SpotifyContextProvider>
+  <AuthContextProvider>
+    <SpotifyContextProvider>{children}</SpotifyContextProvider>
+  </AuthContextProvider>
 );
 
 ReactDOM.render(
