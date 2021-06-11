@@ -10,8 +10,7 @@ import { authContext } from "../context/AuthContext";
 const code = new URLSearchParams(window.location.search).get("code");
 
 export const Home = () => {
-  const { newReleases, featuredPlaylists, fetchInitialData } =
-    useContext(spotifyContext);
+  const { newReleases, featuredPlaylists } = useContext(spotifyContext);
 
   const { accessToken, login } = useContext(authContext);
 
@@ -19,8 +18,6 @@ export const Home = () => {
     if (!accessToken) {
       return login(code);
     }
-
-    fetchInitialData(accessToken);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [accessToken]);
 
