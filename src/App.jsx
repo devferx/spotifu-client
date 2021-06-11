@@ -15,7 +15,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={accessToken ? Home : Login} />
         <Route path="/home" component={Home} />
-        <Route path="/search" component={SearchPage} />
+        <Route path="/search" component={accessToken ? SearchPage : Login} />
         <Route path="/login" component={Login} />
       </Switch>
     </BrowserRouter>
