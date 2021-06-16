@@ -8,10 +8,11 @@ export const spotifyContext = createContext();
 
 export const SpotifyContextProvider = ({ children }) => {
   const [userToken, setUserToken] = useState(false);
+  const [currentSong, setCurrentSong] = useState({});
   const { accessToken } = useContext(authContext);
   const { newReleases, featuredPlaylists, userPlaylists } =
     useInitialData(accessToken);
-  const { search, setSearch, SearchResults } = useSearch(accessToken);
+  const { search, setSearch, searchResults } = useSearch(accessToken);
 
   return (
     <spotifyContext.Provider
@@ -21,9 +22,11 @@ export const SpotifyContextProvider = ({ children }) => {
         featuredPlaylists,
         userPlaylists,
         search,
-        SearchResults,
+        searchResults,
+        currentSong,
         setUserToken,
         setSearch,
+        setCurrentSong,
       }}
     >
       {children}

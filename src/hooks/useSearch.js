@@ -7,7 +7,7 @@ const spotifyApi = new SpotifyWebApi({
 
 export const useSearch = (accessToken) => {
   const [search, setSearch] = useState("");
-  const [SearchResults, setSearchResults] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     if (!search) return;
@@ -23,5 +23,5 @@ export const useSearch = (accessToken) => {
     spotifyApi.setAccessToken(accessToken);
   }, [accessToken]);
 
-  return { search, setSearch, SearchResults };
+  return { search, setSearch, searchResults };
 };

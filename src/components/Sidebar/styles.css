@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 240px;
-  height: calc(100vh - 90px);
+  height: calc(100vh - 48px);
   background-color: var(--gray60);
   padding-top: 20px;
   overflow-y: auto;
