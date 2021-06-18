@@ -2,10 +2,13 @@ import { useContext } from "react";
 import { useRouteMatch, useHistory } from "react-router-dom";
 
 import { spotifyContext } from "../../context/SpotifyContext";
+import { authContext } from "../../context/AuthContext";
+import { AUTH_URL } from "../../constants";
 import "./styles.css";
 
 export const TopBar = () => {
   const { search, setSearch } = useContext(spotifyContext);
+  const { isLogin } = useContext(authContext);
   const history = useHistory();
   const pageIsSearch = useRouteMatch("/search");
 
@@ -35,6 +38,12 @@ export const TopBar = () => {
           placeholder="Artistas, canciones o podcasts"
         />
       </div>
+
+      {!isLogin && (
+        <a className="button button-text" href={AUTH_URL}>
+          Login
+        </a>
+      )}
     </div>
   );
 };

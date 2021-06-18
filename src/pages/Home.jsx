@@ -1,11 +1,9 @@
 import { useContext, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 
-import { Layout } from "../components/Layout";
-import { AlbumCardList } from "../components/AlbumCardList";
-
-import { spotifyContext } from "../context/SpotifyContext";
 import { authContext } from "../context/AuthContext";
+import { AlbumCardList } from "../components/AlbumCardList";
+import { spotifyContext } from "../context/SpotifyContext";
 
 const code = new URLSearchParams(window.location.search).get("code");
 
@@ -26,13 +24,13 @@ export const Home = () => {
   }
 
   return (
-    <Layout>
+    <>
       <AlbumCardList title="Nuevos Lanzamientos" albumList={newReleases} />
       <AlbumCardList
         title="Listas de Reproducción Destacadas"
         albumList={featuredPlaylists}
         isPlaylist={true}
       />
-    </Layout>
+    </>
   );
 };

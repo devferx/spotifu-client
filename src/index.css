@@ -35,7 +35,9 @@ body {
   font: var(--button);
   text-transform: uppercase;
   background-color: var(--primary);
+  border: none;
   border-radius: 999px;
+  cursor: pointer;
 }
 
 .button-text {

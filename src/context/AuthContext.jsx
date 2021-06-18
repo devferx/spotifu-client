@@ -4,6 +4,7 @@ import axios from "axios";
 export const authContext = createContext();
 
 export const AuthContextProvider = ({ children }) => {
+  const [isLogin, setIsLogin] = useState(false);
   const [accessToken, setAccessToken] = useState();
   const [refreshToken, setRefreshToken] = useState();
   const [expiresIn, setExpiresIn] = useState();
@@ -15,6 +16,7 @@ export const AuthContextProvider = ({ children }) => {
         setAccessToken(res.data.accessToken);
         setRefreshToken(res.data.refreshToken);
         setExpiresIn(res.data.expiresIn);
+        setIsLogin(true);
         window.history.pushState({}, null, "/");
       })
       .catch((err) => {
@@ -44,7 +46,7 @@ export const AuthContextProvider = ({ children }) => {
   }, [refreshToken, expiresIn]);
 
   return (
-    <authContext.Provider value={{ accessToken, login }}>
+    <authContext.Provider value={{ accessToken, login, isLogin }}>
       {children}
     </authContext.Provider>
   );

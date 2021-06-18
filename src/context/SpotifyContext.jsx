@@ -7,7 +7,6 @@ import { useInitialData } from "../hooks/useInitialData";
 export const spotifyContext = createContext();
 
 export const SpotifyContextProvider = ({ children }) => {
-  const [userToken, setUserToken] = useState(false);
   const [currentSong, setCurrentSong] = useState({});
   const { accessToken } = useContext(authContext);
   const { newReleases, featuredPlaylists, userPlaylists } =
@@ -17,14 +16,12 @@ export const SpotifyContextProvider = ({ children }) => {
   return (
     <spotifyContext.Provider
       value={{
-        userToken,
         newReleases,
         featuredPlaylists,
         userPlaylists,
         search,
         searchResults,
         currentSong,
-        setUserToken,
         setSearch,
         setCurrentSong,
       }}
