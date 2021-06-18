@@ -1,34 +1,11 @@
-.track-list-container {
+.track-list {
   width: 100%;
   padding: 20px;
 }
-.track-list-header {
+.track-list__header {
   display: grid;
   grid-template-columns: 45px 45px 1fr 1fr 1fr 90px 45px;
   gap: 12px;
   width: 100%;
   height: 45px;
-}
-
-.track-list-item {
-  display: grid;
-  grid-template-columns: 45px 45px 1fr 1fr 1fr 90px 45px;
-  gap: 12px;
-  align-items: center;
-  min-height: 50px;
-}
-
-.button-container {
-  display: grid;
-  place-items: center;
-}
-
-.button-container button {
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.button-container img {
-  user-select: none;
 }

@@ -1,0 +1,27 @@
+.track-list__item {
+  display: grid;
+  grid-template-columns: 45px 45px 1fr 1fr 1fr 90px 45px;
+  gap: 12px;
+  align-items: center;
+  min-height: 50px;
+}
+
+.track-list__item__title {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.track-list__item__artist {
+  text-transform: uppercase;
+}
+
+.track-list__item__button-container {
+  display: grid;
+  place-items: center;
+}
+
+.track-list__item__button-container button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
