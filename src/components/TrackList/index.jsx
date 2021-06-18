@@ -39,7 +39,7 @@ export const TrackList = ({ tracks }) => {
             </button>
           </div>
           <div>
-            <img width="100%" src={track.album.images[0].url} alt="" />
+            <img width="100%" src={track.album.smallerImage.url} alt="" />
           </div>
           <div>{track.name}</div>
           <div>{track.artists[0].name}</div>

@@ -15,6 +15,7 @@
   grid-template-columns: 45px 45px 1fr 1fr 1fr 90px 45px;
   gap: 12px;
   align-items: center;
+  min-height: 50px;
 }
 
 .button-container {

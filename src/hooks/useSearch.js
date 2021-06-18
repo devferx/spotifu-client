@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import SpotifyWebApi from "spotify-web-api-node";
+import { getSmallerImage } from "../utils/getSmallerImage";
 
 const spotifyApi = new SpotifyWebApi({
   clientId: process.env.REACT_APP_SPOTIFY_CLIENT_KEY,
@@ -14,7 +15,13 @@ export const useSearch = (accessToken) => {
     if (!accessToken) return;
 
     spotifyApi.searchTracks(search).then((res) => {
-      setSearchResults(res.body.tracks.items);
+      const searchItems = res.body.tracks.items;
+
+      searchItems.map(
+        (item) => (item.album.smallerImage = getSmallerImage(item))
+      );
+
+      setSearchResults(searchItems);
     });
   }, [search, accessToken]);
 
