@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./styles.css";
 
 export const SidebarPlaylistMenu = ({ title, playlists }) => {
@@ -6,13 +7,7 @@ export const SidebarPlaylistMenu = ({ title, playlists }) => {
       <li className="sidebar__list__title">{title}</li>
       {playlists.map((playlist) => (
         <li key={playlist.id} className="sidebar__list__item">
-          <a
-            href={playlist.external_urls.spotify}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {playlist.name}
-          </a>
+          <Link to={`/playlist/${playlist.id}`}>{playlist.name}</Link>
         </li>
       ))}
     </ul>

@@ -1,6 +1,9 @@
 import { useContext } from "react";
 
 import { spotifyContext } from "../../context/SpotifyContext";
+import { millisToMinutesAndSeconds } from "../../utils/millisToMinutesAndSeconds";
+import { getSmallerImage } from "../../utils/getSmallerImage";
+
 import playIcon from "../../assets/icons/play.svg";
 import "./styles.css";
 
@@ -17,7 +20,7 @@ export const TrackListItem = ({ track }) => {
       <div>
         <img
           width="100%"
-          src={track.album.smallerImage.url}
+          src={getSmallerImage(track.album.images).url}
           alt={`${track.album.name} album cover`}
         />
       </div>
@@ -34,7 +37,7 @@ export const TrackListItem = ({ track }) => {
         <p>{track.album.release_date}</p>
       </div>
       <div>
-        <p>{track.duration}</p>
+        <p>{millisToMinutesAndSeconds(track.duration_ms)}</p>
       </div>
     </div>
   );

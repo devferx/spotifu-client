@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import SpotifyWebApi from "spotify-web-api-node";
-import { getSmallerImage } from "../utils/getSmallerImage";
-import { millisToMinutesAndSeconds } from "../utils/millisToMinutesAndSeconds";
 
 const spotifyApi = new SpotifyWebApi({
   clientId: process.env.REACT_APP_SPOTIFY_CLIENT_KEY,
@@ -16,17 +14,7 @@ export const useSearch = (accessToken) => {
     if (!accessToken) return;
 
     spotifyApi.searchTracks(search).then((res) => {
-      let searchItems = res.body.tracks.items;
-
-      // Search the smaller image and set duration in seconds
-      searchItems = searchItems.map((item) => ({
-        ...item,
-        duration: millisToMinutesAndSeconds(item.duration_ms),
-        album: {
-          ...item.album,
-          smallerImage: getSmallerImage(item),
-        },
-      }));
+      const searchItems = res.body.tracks.items;
 
       setSearchResults(searchItems);
     });

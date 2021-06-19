@@ -1,0 +1,21 @@
+.playlist-page__header {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 16px;
+  padding: 20px;
+}
+
+.playlist-page__header__content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 300px;
+}
+
+.playlist-page__header__content__title {
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 44px;
+}
