@@ -6,11 +6,12 @@ import { authContext } from "../../context/AuthContext";
 import "./styles.css";
 
 export const BottomBar = () => {
-  const { currentSong } = useContext(spotifyContext);
+  const { currentMusic } = useContext(spotifyContext);
   const { accessToken } = useContext(authContext);
+
   return (
     <div className="bottom-bar">
-      {currentSong?.uri && (
+      {currentMusic.length !== 0 && (
         <SpotifyPlayer
           styles={{
             activeColor: "#fff",
@@ -24,7 +25,7 @@ export const BottomBar = () => {
           play
           showSaveIcon
           token={accessToken}
-          uris={[currentSong.uri]}
+          uris={currentMusic}
         />
       )}
     </div>

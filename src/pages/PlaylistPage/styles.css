@@ -19,3 +19,11 @@
   font-size: 32px;
   line-height: 44px;
 }
+
+.playlist-page__header__content__btn {
+  transition: 0.3s transform;
+}
+
+.playlist-page__header__content__btn:active {
+  transform: scale(0.9);
+}

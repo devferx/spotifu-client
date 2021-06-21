@@ -8,12 +8,12 @@ import playIcon from "../../assets/icons/play.svg";
 import "./styles.css";
 
 export const TrackListItem = ({ track }) => {
-  const { setCurrentSong } = useContext(spotifyContext);
+  const { playSong } = useContext(spotifyContext);
 
   return (
     <div className="track-list__item">
       <div className="track-list__item__button-container">
-        <button onClick={() => setCurrentSong(track)}>
+        <button onClick={() => playSong(track)}>
           <img src={playIcon} alt="Play Icon" />
         </button>
       </div>

@@ -22,7 +22,10 @@ export const TrackList = ({ tracks, isPlaylist = false }) => {
       </div>
 
       {tracks.map((trackParam) => {
-        const track = isPlaylist ? trackParam.track : trackParam;
+        const track = isPlaylist ? trackParam?.track : trackParam;
+
+        if (!track) return null;
+
         return <TrackListItem key={track.id} track={track} />;
       })}
     </div>

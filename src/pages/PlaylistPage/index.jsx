@@ -7,7 +7,7 @@ import { spotifyContext } from "../../context/SpotifyContext";
 import "./styles.css";
 
 export const PlaylistPage = () => {
-  const { getPlaylistInfo } = useContext(spotifyContext);
+  const { getPlaylistInfo, playPlaylist } = useContext(spotifyContext);
   const [playlist, setPlaylist] = useState(null);
   const params = useParams();
 
@@ -38,7 +38,12 @@ export const PlaylistPage = () => {
             {playlist.description}
           </p>
           <p>{playlist.followers.total.toLocaleString()} SEGUIDORES</p>
-          <button className="button button-text">Repoducir</button>
+          <button
+            onClick={() => playPlaylist(playlist.tracks.items)}
+            className="playlist-page__header__content__btn button button-text"
+          >
+            Repoducir
+          </button>
         </div>
       </div>
 
