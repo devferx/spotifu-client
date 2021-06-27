@@ -19,6 +19,7 @@ export const TrackListItem = ({ track }) => {
       </div>
       <div>
         <img
+          className="track-list__item__album-cover"
           width="100%"
           src={getSmallerImage(track.album.images).url}
           alt={`${track.album.name} album cover`}
