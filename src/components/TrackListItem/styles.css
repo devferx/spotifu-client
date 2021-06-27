@@ -1,9 +1,14 @@
 .track-list__item {
   display: grid;
-  grid-template-columns: 45px 45px 1fr 1fr 1fr 90px 45px;
-  gap: 12px;
+  grid-template-columns: 45px 45px 1fr 1fr 120px 45px;
+  gap: 14px;
   align-items: center;
   min-height: 50px;
+  padding: 4px 0;
+}
+
+.track-list__item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .track-list__item__title {
@@ -12,7 +17,16 @@
 }
 
 .track-list__item__artist {
-  text-transform: uppercase;
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.6;
+}
+
+.track-list__item__album {
+  font-weight: 500;
+  font-size: 14px;
+  opacity: 0.7;
 }
 
 .track-list__item__button-container {

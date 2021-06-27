@@ -26,12 +26,10 @@ export const TrackListItem = ({ track }) => {
       </div>
       <div>
         <p className="track-list__item__title">{track.name}</p>
-      </div>
-      <div>
         <p className="track-list__item__artist">{track.artists[0].name}</p>
       </div>
       <div>
-        <p>{track.album.name}</p>
+        <p className="track-list__item__album">{track.album.name}</p>
       </div>
       <div>
         <p>{track.album.release_date}</p>

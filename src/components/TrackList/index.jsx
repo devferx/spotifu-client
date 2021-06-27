@@ -11,7 +11,6 @@ export const TrackList = ({ tracks, isPlaylist = false }) => {
         <span></span>
         <span></span>
         <span>TÍTULO</span>
-        <span>Artista</span>
         <span>ÁLBUM</span>
         <span>
           <img src={calendarIcon} alt="Calendar Icon" />

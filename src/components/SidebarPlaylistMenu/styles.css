@@ -8,8 +8,19 @@
   color: var(--gray10);
 }
 
+.sidebar__list__title {
+  font-weight: 800;
+  font-size: 12px;
+  text-transform: uppercase;
+  user-select: none;
+}
+
 .sidebar__list__item a {
   color: var(--grey10);
-  font-weight: bold;
   text-decoration: none;
+}
+
+.sidebar__list__item a.active-playlist {
+  color: #fff;
+  font-weight: 500;
 }

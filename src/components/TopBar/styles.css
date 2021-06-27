@@ -8,6 +8,7 @@
   height: 72px;
   width: calc(100% - 240px);
   padding: 16px 24px;
+  z-index: 9;
 }
 
 .bg-gray {

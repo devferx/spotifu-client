@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./styles.css";
 
 export const SidebarPlaylistMenu = ({ title, playlists }) => {
@@ -7,7 +7,12 @@ export const SidebarPlaylistMenu = ({ title, playlists }) => {
       <li className="sidebar__list__title">{title}</li>
       {playlists.map((playlist) => (
         <li key={playlist.id} className="sidebar__list__item">
-          <Link to={`/playlist/${playlist.id}`}>{playlist.name}</Link>
+          <NavLink
+            activeClassName="active-playlist"
+            to={`/playlist/${playlist.id}`}
+          >
+            {playlist.name}
+          </NavLink>
         </li>
       ))}
     </ul>
