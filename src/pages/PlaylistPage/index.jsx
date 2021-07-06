@@ -3,11 +3,13 @@ import { useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 
 import { TrackList } from "../../components/TrackList";
+import { playerContext } from "../../context/PlayerContext";
 import { spotifyContext } from "../../context/SpotifyContext";
 import "./styles.css";
 
 export const PlaylistPage = () => {
-  const { getPlaylistInfo, playPlaylist } = useContext(spotifyContext);
+  const { playPlaylist } = useContext(playerContext);
+  const { getPlaylistInfo } = useContext(spotifyContext);
   const [playlist, setPlaylist] = useState(null);
   const params = useParams();
 

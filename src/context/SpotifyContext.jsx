@@ -1,4 +1,4 @@
-import { createContext, useState, useContext } from "react";
+import { createContext, useContext } from "react";
 import SpotifyWebApi from "spotify-web-api-node";
 
 import { authContext } from "./AuthContext";
@@ -8,7 +8,6 @@ import { useInitialData } from "../hooks/useInitialData";
 export const spotifyContext = createContext();
 
 export const SpotifyContextProvider = ({ children }) => {
-  const [currentMusic, setCurrentMusic] = useState([]);
   const { accessToken } = useContext(authContext);
   const { newReleases, featuredPlaylists, userPlaylists } =
     useInitialData(accessToken);
@@ -24,22 +23,6 @@ export const SpotifyContextProvider = ({ children }) => {
     return resp.body;
   };
 
-  const playSong = (track) => {
-    const newCurrentMusic = [track.uri];
-    setCurrentMusic(newCurrentMusic);
-  };
-
-  const playPlaylist = (trackList) => {
-    const newTrackList = [];
-
-    for (let i = 0; i < trackList.length; i++) {
-      const uri = trackList[i]?.track?.uri;
-      uri && newTrackList.push(uri);
-    }
-
-    setCurrentMusic(newTrackList);
-  };
-
   return (
     <spotifyContext.Provider
       value={{
@@ -48,11 +31,8 @@ export const SpotifyContextProvider = ({ children }) => {
         userPlaylists,
         search,
         searchResults,
-        currentMusic,
         setSearch,
         getPlaylistInfo,
-        playSong,
-        playPlaylist,
       }}
     >
       {children}

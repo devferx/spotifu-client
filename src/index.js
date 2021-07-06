@@ -3,12 +3,15 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import { SpotifyContextProvider } from "./context/SpotifyContext";
 import { AuthContextProvider } from "./context/AuthContext";
+import { PlayerContextProvider } from "./context/PlayerContext";
 import reportWebVitals from "./reportWebVitals";
 import "./index.css";
 
 const AppState = ({ children }) => (
   <AuthContextProvider>
-    <SpotifyContextProvider>{children}</SpotifyContextProvider>
+    <SpotifyContextProvider>
+      <PlayerContextProvider>{children}</PlayerContextProvider>
+    </SpotifyContextProvider>
   </AuthContextProvider>
 );
 

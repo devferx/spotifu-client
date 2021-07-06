@@ -1,6 +1,7 @@
 import { useContext } from "react";
 
-import { spotifyContext } from "../../context/SpotifyContext";
+// import { spotifyContext } from "../../context/SpotifyContext";
+import { playerContext } from "../../context/PlayerContext";
 import { millisToMinutesAndSeconds } from "../../utils/millisToMinutesAndSeconds";
 import { getSmallerImage } from "../../utils/getSmallerImage";
 
@@ -8,7 +9,7 @@ import playIcon from "../../assets/icons/play.svg";
 import "./styles.css";
 
 export const TrackListItem = ({ track }) => {
-  const { playSong } = useContext(spotifyContext);
+  const { playSong } = useContext(playerContext);
 
   return (
     <div className="track-list__item">
