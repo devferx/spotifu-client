@@ -34,6 +34,15 @@
   opacity: 0.7;
 }
 
+.track-list__item__album a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.track-list__item__album a:hover {
+  text-decoration: underline;
+}
+
 .track-list__item__button-container {
   display: grid;
   place-items: center;

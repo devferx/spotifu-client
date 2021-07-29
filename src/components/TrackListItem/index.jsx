@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 // import { spotifyContext } from "../../context/SpotifyContext";
 import { playerContext } from "../../context/PlayerContext";
@@ -31,7 +32,9 @@ export const TrackListItem = ({ track }) => {
         <p className="track-list__item__artist">{track.artists[0].name}</p>
       </div>
       <div>
-        <p className="track-list__item__album">{track.album.name}</p>
+        <p className="track-list__item__album">
+          <Link to={`/album/${track.album.id}`}>{track.album.name}</Link>
+        </p>
       </div>
       <div>
         <p>{track.album.release_date}</p>
