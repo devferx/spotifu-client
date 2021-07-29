@@ -23,6 +23,11 @@ export const SpotifyContextProvider = ({ children }) => {
     return resp.body;
   };
 
+  const getAlbumInfo = async (albumId) => {
+    const resp = await spotifyApi.getAlbum(albumId);
+    return resp.body;
+  };
+
   return (
     <spotifyContext.Provider
       value={{
@@ -33,6 +38,7 @@ export const SpotifyContextProvider = ({ children }) => {
         searchResults,
         setSearch,
         getPlaylistInfo,
+        getAlbumInfo,
       }}
     >
       {children}

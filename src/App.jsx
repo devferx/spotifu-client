@@ -7,6 +7,7 @@ import { Login } from "./pages/Login";
 import { Home } from "./pages/Home";
 import { SearchPage } from "./pages/SearchPage";
 import { PlaylistPage } from "./pages/PlaylistPage";
+import { AlbumPage } from "./pages/AlbumPage";
 import { Layout } from "./components/Layout";
 
 function App() {
@@ -22,6 +23,10 @@ function App() {
           <Route
             path="/playlist/:id"
             component={accessToken ? PlaylistPage : Login}
+          />
+          <Route
+            path="/album/:albumId"
+            component={accessToken ? AlbumPage : Login}
           />
           <Route path="/login" component={Login} />
         </Switch>

@@ -4,7 +4,9 @@ import "./styles.css";
 export const AlbumCard = ({ album, isPlaylist }) => {
   const history = useHistory();
   const handleClick = () => {
-    isPlaylist && history.push(`/playlist/${album.id}`);
+    isPlaylist
+      ? history.push(`/playlist/${album.id}`)
+      : history.push(`/album/${album.id}`);
   };
 
   return (
