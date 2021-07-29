@@ -4,7 +4,6 @@ import { playerContext } from "../../context/PlayerContext";
 import { millisToMinutesAndSeconds } from "../../utils/millisToMinutesAndSeconds";
 
 import playIcon from "../../assets/icons/play.svg";
-import "./styles.css";
 
 export const AlbumTrackListItem = ({
   track,
@@ -16,9 +15,9 @@ export const AlbumTrackListItem = ({
   const { playSong } = useContext(playerContext);
 
   return (
-    <div className="track-list__item">
+    <div className="track-list__item" onClick={() => playSong(track)}>
       <div className="track-list__item__button-container">
-        <button onClick={() => playSong(track)}>
+        <button>
           <img src={playIcon} alt="Play Icon" />
         </button>
       </div>

@@ -1,21 +1,24 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 
-// import { spotifyContext } from "../../context/SpotifyContext";
 import { playerContext } from "../../context/PlayerContext";
 import { millisToMinutesAndSeconds } from "../../utils/millisToMinutesAndSeconds";
 import { getSmallerImage } from "../../utils/getSmallerImage";
 
 import playIcon from "../../assets/icons/play.svg";
-import "./styles.css";
 
 export const TrackListItem = ({ track }) => {
   const { playSong } = useContext(playerContext);
 
+  const handleClick = (ev, track) => {
+    if (ev.target.localName === "a") return;
+    playSong(track);
+  };
+
   return (
-    <div className="track-list__item">
+    <div className="track-list__item" onClick={(ev) => handleClick(ev, track)}>
       <div className="track-list__item__button-container">
-        <button onClick={() => playSong(track)}>
+        <button>
           <img src={playIcon} alt="Play Icon" />
         </button>
       </div>
