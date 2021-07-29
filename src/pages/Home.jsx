@@ -2,6 +2,7 @@ import { useContext, useEffect } from "react";
 import { Redirect } from "react-router-dom";
 
 import { authContext } from "../context/AuthContext";
+import { FlatPlaylistList } from "../components/FlatPlaylistList";
 import { AlbumCardList } from "../components/AlbumCardList";
 import { spotifyContext } from "../context/SpotifyContext";
 
@@ -25,6 +26,7 @@ export const Home = () => {
 
   return (
     <>
+      <FlatPlaylistList />
       <AlbumCardList title="Nuevos Lanzamientos" albumList={newReleases} />
       <AlbumCardList
         title="Listas de Reproducción Destacadas"
