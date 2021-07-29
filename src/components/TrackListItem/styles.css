@@ -5,10 +5,15 @@
   align-items: center;
   min-height: 50px;
   padding: 4px 0;
+  user-select: none;
 }
 
 .track-list__item:hover {
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+.track-list__item p {
+  user-select: none;
 }
 
 .track-list__item__album-cover {
@@ -52,4 +57,10 @@
   border: none;
   background: none;
   cursor: pointer;
+  opacity: 0;
+  transition: 300ms opacity ease-in-out;
+}
+
+.track-list__item:hover .track-list__item__button-container button {
+  opacity: 1;
 }

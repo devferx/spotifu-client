@@ -13,7 +13,6 @@ export const AlbumPage = () => {
   useEffect(() => {
     getAlbumInfo(albumId)
       .then((album) => {
-        console.log(album);
         setAlbum(album);
       })
       .catch((err) => {
