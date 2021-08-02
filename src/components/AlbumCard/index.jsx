@@ -10,13 +10,15 @@ export const AlbumCard = ({ album, isPlaylist }) => {
   };
 
   return (
-    <div onClick={handleClick} className="glide__slide album-card">
-      <img src={album.images[0].url} alt={album.title} />
-      <p className="album-card-title">{album.name}</p>
+    <div className="album-card-wrapper">
+      <div onClick={handleClick} className="album-card">
+        <img src={album.images[0].url} alt={album.title} />
+        <p className="album-card-title">{album.name}</p>
 
-      <p className="album-card-artist">
-        {!isPlaylist ? album.artists[0].name : album.description}
-      </p>
+        <p className="album-card-artist">
+          {!isPlaylist ? album.artists[0].name : album.description}
+        </p>
+      </div>
     </div>
   );
 };

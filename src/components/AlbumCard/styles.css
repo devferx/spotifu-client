@@ -1,11 +1,13 @@
+.album-card-wrapper {
+  padding: 0 8px;
+}
 .album-card {
   display: block;
   width: 100%;
-  max-width: 182px;
-  width: 182px;
   min-width: 182px;
   height: 100%;
   padding: 16px;
+  margin-right: 8px;
   background-color: var(--gray40);
   border-radius: 4px;
   cursor: pointer;

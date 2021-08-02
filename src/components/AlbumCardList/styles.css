@@ -2,10 +2,34 @@
   margin: 32px 0 0 32px;
 }
 
-.album-card-list-title {
+.album-card-list__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 21px;
+}
+
+.album-card-list__header__title {
   font-weight: 800;
   font-size: 24px;
   line-height: 28px;
+}
+
+.album-card-list__header__actions {
+  display: flex;
+  gap: 8px;
+  padding-right: 14px;
+}
+
+.album-card-list__header__actions__button {
+  display: inline-grid;
+  place-items: center;
+  min-width: 40px;
+  min-height: 40px;
+  border: none;
+  cursor: pointer;
+  background: var(--gray60);
+  border-radius: 999px;
 }
 
 .album-card-list-container {
