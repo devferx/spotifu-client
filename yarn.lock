@@ -7146,7 +7146,7 @@ media-typer@0.3.0:
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
 
-memoize-one@^5.1.1:
+memoize-one@^5.2.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-5.2.1.tgz#8337aa3c4335581839ec01c3d594090cebe8f00e"
   integrity sha512-zYiwtZUcYyXKo/np96AGZAckk+FWWsUdJ3cHGGmld7+AhvcWmQyGCYUh1hc4Q/pkOhb65dQR/pqCyK0cOaHz4Q==
@@ -7421,10 +7421,10 @@ nan@^2.12.1:
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.2.tgz#f5376400695168f4cc694ac9393d0c9585eeea19"
   integrity sha512-M2ufzIiINKCuDfBSAUr1vWQ+vuVcA9kqx8JJUsbQi6yf1uGRyb7HfpdfUr5qLXf3B/t8dPvcjhKMmlfnP47EzQ==
 
-nano-css@^5.3.0:
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/nano-css/-/nano-css-5.3.1.tgz#b709383e07ad3be61f64edffacb9d98250b87a1f"
-  integrity sha512-ENPIyNzANQRyYVvb62ajDd7PAyIgS2LIUnT9ewih4yrXSZX4hKoUwssy8WjUH++kEOA5wUTMgNnV7ko5n34kUA==
+nano-css@^5.3.1:
+  version "5.3.4"
+  resolved "https://registry.yarnpkg.com/nano-css/-/nano-css-5.3.4.tgz#40af6a83a76f84204f346e8ccaa9169cdae9167b"
+  integrity sha512-wfcviJB6NOxDIDfr7RFn/GlaN7I/Bhe4d39ZRCJ3xvZX60LVe2qZ+rDqM49nm4YT81gAjzS+ZklhKP/Gnfnubg==
   dependencies:
     css-tree "^1.1.2"
     csstype "^3.0.6"
@@ -9250,15 +9250,15 @@ react-slick@^0.28.1:
     lodash.debounce "^4.0.8"
     resize-observer-polyfill "^1.5.0"
 
-react-spotify-web-playback@^0.8.1:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/react-spotify-web-playback/-/react-spotify-web-playback-0.8.1.tgz#d0a7cda43c836edbac6884c59fed14bf996ae6fc"
-  integrity sha512-ruTDVbCOJ7i4+nvLIFl8A796TlUBwE9NI1z7pPOPy62QXFThMJN9KyypzqV9IZ66Nf9/mNmqGVGbfs5yX41xQg==
+react-spotify-web-playback@^0.8.2:
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/react-spotify-web-playback/-/react-spotify-web-playback-0.8.2.tgz#41892c09385a05901b17f77bf77e60d65b714ff1"
+  integrity sha512-Ae4pCP7DYs15IZIL5JX3+QaKY7yTE+1ojNdG1TGtAebqr+wuaEo3ubT2WNzj9nbykfwSbrTXVfNd8TCqhOgrnw==
   dependencies:
     "@gilbarbara/react-range-slider" "^0.6.1"
     exenv "^1.2.2"
-    memoize-one "^5.1.1"
-    nano-css "^5.3.0"
+    memoize-one "^5.2.1"
+    nano-css "^5.3.1"
 
 react@^17.0.2:
   version "17.0.2"
