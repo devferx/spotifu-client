@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export const useInitialData = (accessToken) => {
-  const [newReleases, setNewReleases] = useState([]);
-  const [featuredPlaylists, setFeaturedPlaylists] = useState([]);
-  const [userPlaylists, setUserPlaylists] = useState([]);
+  const [newReleases, setNewReleases] = useState(new Array(10).fill(null));
+  const [featuredPlaylists, setFeaturedPlaylists] = useState(
+    new Array(10).fill(null)
+  );
+  const [userPlaylists, setUserPlaylists] = useState(new Array(5).fill(null));
 
   useEffect(() => {
     if (!accessToken) return;

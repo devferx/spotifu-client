@@ -1,11 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import { SkeletonTheme } from "react-loading-skeleton";
+
 import { SpotifyContextProvider } from "./context/SpotifyContext";
 import { AuthContextProvider } from "./context/AuthContext";
 import { PlayerContextProvider } from "./context/PlayerContext";
-import reportWebVitals from "./reportWebVitals";
+
+import App from "./App";
 import "./index.css";
+
+import reportWebVitals from "./reportWebVitals";
 
 const AppState = ({ children }) => (
   <AuthContextProvider>
@@ -17,7 +21,9 @@ const AppState = ({ children }) => (
 
 ReactDOM.render(
   <AppState>
-    <App />
+    <SkeletonTheme color="#202020" highlightColor="#444">
+      <App />
+    </SkeletonTheme>
   </AppState>,
   document.getElementById("root")
 );

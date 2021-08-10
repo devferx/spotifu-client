@@ -13,9 +13,13 @@ export const FlatPlaylistList = () => {
       <h2>Buenos Dias!</h2>
       {/* Playlist Items */}
       <div className="flat-playlist__container">
-        {featuredPlaylists.map((playlist) => (
+        {featuredPlaylists.map((playlist, i) => (
           <FlatPlaylistItem
-            key={`playlist-flat-${playlist.id}`}
+            key={
+              playlist?.id
+                ? `playlist-flat-${playlist.id}`
+                : `playlist-flat-${i}`
+            }
             playlist={playlist}
           />
         ))}

@@ -69,8 +69,12 @@ export const AlbumCardList = ({ title, albumList, isPlaylist = false }) => {
       </div>
 
       <Slider ref={sliderRef} {...sliderSettings}>
-        {albumList.map((album) => (
-          <AlbumCard key={album.id} album={album} isPlaylist={isPlaylist} />
+        {albumList.map((album, i) => (
+          <AlbumCard
+            key={album?.id || `album-${i}`}
+            album={album}
+            isPlaylist={isPlaylist}
+          />
         ))}
       </Slider>
     </div>
