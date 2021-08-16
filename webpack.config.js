@@ -50,9 +50,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "assets/[name].[contenthash].css",
     }),
-    new Dotenv({
-      path: "./.env",
-    }),
+    new Dotenv(),
     new CleanWebpackPlugin(),
   ],
   optimization: {
