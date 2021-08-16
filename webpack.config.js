@@ -11,8 +11,8 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "build"),
-    filename: "[name].[contenthash].js",
-    assetModuleFilename: "assets/images/[hash][ext][query]",
+    filename: "js/[name].[contenthash].js",
+    assetModuleFilename: "assets/[hash][ext][query]",
     publicPath: "/",
   },
   resolve: {
@@ -48,7 +48,7 @@ module.exports = {
       filename: "./index.html",
     }),
     new MiniCssExtractPlugin({
-      filename: "assets/[name].[contenthash].css",
+      filename: "css/[name].[contenthash].css",
     }),
     new Dotenv(),
     new CleanWebpackPlugin(),
@@ -56,5 +56,8 @@ module.exports = {
   optimization: {
     minimize: true,
     minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
+    splitChunks: {
+      chunks: "all",
+    },
   },
 };
