@@ -5,7 +5,7 @@ import { AlbumTrackList } from "../../components/AlbumTrackList";
 import { spotifyContext } from "../../context/SpotifyContext.jsx";
 import "./styles.css";
 
-export const AlbumPage = () => {
+const AlbumPage = () => {
   const [album, setAlbum] = useState(null);
   const { getAlbumInfo } = useContext(spotifyContext);
   const { albumId } = useParams();
@@ -45,3 +45,5 @@ export const AlbumPage = () => {
     </>
   );
 };
+
+export default AlbumPage;

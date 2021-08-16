@@ -7,7 +7,7 @@ import { playerContext } from "../../context/PlayerContext";
 import { spotifyContext } from "../../context/SpotifyContext";
 import "./styles.css";
 
-export const PlaylistPage = () => {
+const PlaylistPage = () => {
   const { playPlaylist } = useContext(playerContext);
   const { getPlaylistInfo } = useContext(spotifyContext);
   const [playlist, setPlaylist] = useState(null);
@@ -53,3 +53,5 @@ export const PlaylistPage = () => {
     </div>
   );
 };
+
+export default PlaylistPage;
