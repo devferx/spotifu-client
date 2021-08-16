@@ -3,34 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@glidejs/glide": "^3.4.1",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-loading-skeleton": "^2.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
     "react-slick": "^0.28.1",
     "react-spotify-web-playback": "^0.8.2",
-    "spotify-web-api-node": "^5.0.2",
-    "web-vitals": "^1.0.1"
+    "spotify-web-api-node": "^5.0.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "dev": "webpack serve --config=webpack.config.dev.js",
-    "wp:build" : "webpack --mode=production"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "build": "webpack --mode=production"
   },
   "browserslist": {
     "production": [
