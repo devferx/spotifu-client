@@ -51,13 +51,7 @@ module.exports = {
       filename: "assets/[name].[contenthash].css",
     }),
     new Dotenv({
-      path: "./.env.production.local",
-    }),
-    new Dotenv({
       path: "./.env",
-    }),
-    new Dotenv({
-      path: "./.env.local",
     }),
     new CleanWebpackPlugin(),
   ],
