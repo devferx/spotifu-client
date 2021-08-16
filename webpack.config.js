@@ -13,7 +13,7 @@ module.exports = {
     path: path.resolve(__dirname, "build"),
     filename: "[name].[contenthash].js",
     assetModuleFilename: "assets/images/[hash][ext][query]",
-    publicPath: "http://localhost:3000/",
+    publicPath: "/",
   },
   resolve: {
     alias: {
