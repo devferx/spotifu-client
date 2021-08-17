@@ -4,7 +4,11 @@ import { TopBar } from "../TopBar";
 
 import "./styles.css";
 
-export const Layout = ({ children }) => (
+interface Props {
+  children: JSX.Element;
+}
+
+export const Layout = ({ children }: Props) => (
   <div>
     <TopBar />
     <Sidebar />
