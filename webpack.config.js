@@ -20,15 +20,13 @@ module.exports = {
       "@utils": path.resolve(__dirname, "src/utils"),
       "@images": path.resolve(__dirname, "src/assets/images"),
     },
-    extensions: [".js", ".jsx"],
+    extensions: [".js", ".jsx", ".ts", ".tsx"],
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        use: {
-          loader: "babel-loader",
-        },
+        test: /\.(js|jsx|ts|tsx)?$/,
+        use: ["ts-loader"],
         exclude: /node_modules/,
       },
       {
