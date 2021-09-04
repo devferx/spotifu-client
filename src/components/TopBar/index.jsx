@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useRouteMatch, useHistory } from "react-router-dom";
 
 import { spotifyContext } from "../../context/SpotifyContext";
@@ -7,8 +7,9 @@ import { AUTH_URL } from "../../constants";
 import "./styles.css";
 
 export const TopBar = () => {
-  const { search, setSearch } = useContext(spotifyContext);
+  const { setSearch } = useContext(spotifyContext);
   const { isLogin } = useContext(authContext);
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const history = useHistory();
   const pageIsSearch = useRouteMatch("/search");
 
@@ -23,8 +24,14 @@ export const TopBar = () => {
       history.push("/home");
     }
 
-    setSearch(newQuery);
+    setDebouncedSearch(newQuery);
   };
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setSearch(debouncedSearch), 500);
+
+    return () => clearTimeout(timeout);
+  }, [debouncedSearch]);
 
   return (
     <div className="top-bar bg-gray">
@@ -32,7 +39,7 @@ export const TopBar = () => {
         <span className="search-input-icon" aria-label="Search Icon"></span>
         <input
           type="text"
-          value={search}
+          value={debouncedSearch}
           onChange={handleSearch}
           autoFocus={pageIsSearch?.isExact}
           placeholder="Artistas, canciones o podcasts"
