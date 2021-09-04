@@ -26,13 +26,13 @@ module.exports = {
       "@styles": path.resolve(__dirname, "src/styles"),
       "@images": path.resolve(__dirname, "src/assets/images"),
     },
-    extensions: [".js", ".jsx", ".ts", ".tsx"],
+    extensions: [".js", ".jsx"],
   },
   module: {
     rules: [
       {
-        test: /\.(js|jsx|ts|tsx)?$/,
-        use: ["ts-loader"],
+        test: /\.(js|jsx)?$/,
+        use: ["babel-loader"],
         exclude: /node_modules/,
       },
       {
