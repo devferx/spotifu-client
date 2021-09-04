@@ -8,6 +8,7 @@ const spotifyApi = new SpotifyWebApi({
 export const useSearch = (accessToken) => {
   const [search, setSearch] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [albumsResults, setAlbumsResults] = useState([]);
 
   useEffect(() => {
     if (!search) return;
@@ -18,6 +19,12 @@ export const useSearch = (accessToken) => {
 
       setSearchResults(searchItems);
     });
+
+    spotifyApi.searchAlbums(search).then((res) => {
+      const albumsItems = res.body.albums.items;
+
+      setAlbumsResults(albumsItems);
+    });
   }, [search, accessToken]);
 
   useEffect(() => {
@@ -25,5 +32,5 @@ export const useSearch = (accessToken) => {
     spotifyApi.setAccessToken(accessToken);
   }, [accessToken]);
 
-  return { search, setSearch, searchResults };
+  return { search, searchResults, albumsResults, setSearch };
 };

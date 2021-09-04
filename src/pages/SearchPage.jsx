@@ -1,11 +1,21 @@
 import { useContext } from "react";
+
+import { AlbumCardList } from "../components/AlbumCardList";
 import { TrackList } from "../components/TrackList";
 import { spotifyContext } from "../context/SpotifyContext.jsx";
 
 const SearchPage = () => {
-  const { searchResults } = useContext(spotifyContext);
+  const { searchResults, search, albumsResults } = useContext(spotifyContext);
 
-  return <TrackList tracks={searchResults} />;
+  return (
+    <>
+      <AlbumCardList
+        title={`Resultados de ${search}`}
+        albumList={albumsResults}
+      />
+      <TrackList tracks={searchResults} />
+    </>
+  );
 };
 
 export default SearchPage;

@@ -11,7 +11,8 @@ export const SpotifyContextProvider = ({ children }) => {
   const { accessToken } = useContext(authContext);
   const { newReleases, featuredPlaylists, userPlaylists } =
     useInitialData(accessToken);
-  const { search, setSearch, searchResults } = useSearch(accessToken);
+  const { search, searchResults, albumsResults, setSearch } =
+    useSearch(accessToken);
 
   const spotifyApi = new SpotifyWebApi({
     clientId: process.env.REACT_APP_SPOTIFY_CLIENT_KEY,
@@ -36,6 +37,7 @@ export const SpotifyContextProvider = ({ children }) => {
         userPlaylists,
         search,
         searchResults,
+        albumsResults,
         setSearch,
         getPlaylistInfo,
         getAlbumInfo,
