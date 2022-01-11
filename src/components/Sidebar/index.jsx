@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, memo } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import { spotifyContext } from "../../context/SpotifyContext.jsx";
@@ -7,7 +7,7 @@ import { SidebarPlaylistMenu } from "../SidebarPlaylistMenu";
 import spotifuLogo from "../../assets/icons/spotifu-logo.svg";
 import "./styles.css";
 
-export const Sidebar = () => {
+const SidebarCompoment = () => {
   const { userPlaylists, featuredPlaylists } = useContext(spotifyContext);
   return (
     <aside className="sidebar">
@@ -37,3 +37,5 @@ export const Sidebar = () => {
     </aside>
   );
 };
+
+export const Sidebar = memo(SidebarCompoment);

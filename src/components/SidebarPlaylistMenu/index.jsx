@@ -1,9 +1,10 @@
+import { memo } from "react";
 import { NavLink } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 
 import "./styles.css";
 
-export const SidebarPlaylistMenu = ({ title, playlists }) => {
+const SidebarPlaylistMenuComponent = ({ title, playlists }) => {
   return (
     <ul className="sidebar__list">
       <li className="sidebar__list__title">{title}</li>
@@ -26,3 +27,5 @@ export const SidebarPlaylistMenu = ({ title, playlists }) => {
     </ul>
   );
 };
+
+export const SidebarPlaylistMenu = memo(SidebarPlaylistMenuComponent);
