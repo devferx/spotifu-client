@@ -35,7 +35,10 @@ export const AlbumCard = ({ album, isPlaylist }) => {
     <div className="album-card-wrapper">
       <div onClick={handleClick} className="album-card">
         <div className="album-card__image-container">
-          <img src={album.images[0].url} alt={album.title} />
+          <img
+            src={album.images[1]?.url || album.images[0].url}
+            alt={album.title}
+          />
         </div>
         <p className="album-card-title">{album.name}</p>
         <p className="album-card-artist">
