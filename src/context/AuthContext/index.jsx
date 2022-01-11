@@ -1,29 +1,47 @@
-import React, { useState, useEffect, createContext } from "react";
+import React, { createContext, useReducer, useEffect } from "react";
 import axios from "axios";
 
-import sessionStorage from "../utils/sessionStorage";
+import { reducer } from "./reducer";
+import { actionTypes } from "./types";
+import sessionStorage from "../../utils/sessionStorage";
 
 export const authContext = createContext();
 
+const initialState = {
+  isLogin: false,
+  accessToken: undefined,
+  refreshToken: undefined,
+  expiresIn: undefined,
+};
+
 export const AuthContextProvider = ({ children }) => {
-  const [isLogin, setIsLogin] = useState(false);
-  const [accessToken, setAccessToken] = useState();
-  const [refreshToken, setRefreshToken] = useState();
-  const [expiresIn, setExpiresIn] = useState();
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { isLogin, accessToken, refreshToken, expiresIn } = state;
+
+  const onLogin = ({ accessToken, refreshToken, expiresIn }) => {
+    dispatch({
+      type: actionTypes.LOGIN,
+      payload: { accessToken, refreshToken, expiresIn },
+    });
+  };
+
+  const onRefreshToken = ({ accessToken, expiresIn }) =>
+    dispatch({
+      type: actionTypes.REFRESH_TOKEN,
+      payload: {
+        accessToken,
+        expiresIn,
+      },
+    });
 
   const login = (code) => {
     axios
       .post(`${process.env.REACT_APP_SERVER_URL}/auth/login`, { code })
       .then((res) => {
-        setAccessToken(res.data.accessToken);
-        setRefreshToken(res.data.refreshToken);
-        setExpiresIn(res.data.expiresIn);
-        setIsLogin(true);
-        sessionStorage.setToken(
-          res.data.accessToken,
-          res.data.refreshToken,
-          res.data.expiresIn
-        );
+        const { accessToken, refreshToken, expiresIn } = res.data;
+        onLogin({ accessToken, refreshToken, expiresIn });
+
+        sessionStorage.setToken(accessToken, refreshToken, expiresIn);
         window.history.pushState({}, null, "/");
       })
       .catch((err) => {
@@ -41,10 +59,8 @@ export const AuthContextProvider = ({ children }) => {
       (now.getTime() - new Date(tokenInfo.date).getTime()) / 1000;
 
     if (difference < tokenInfo.expiresIn) {
-      setAccessToken(tokenInfo.accessToken);
-      setRefreshToken(tokenInfo.refreshToken);
-      setExpiresIn(tokenInfo.expiresIn - difference);
-      setIsLogin(true);
+      const { accessToken, refreshToken, expiresIn } = tokenInfo;
+      onLogin({ accessToken, refreshToken, expiresIn: expiresIn - difference });
     }
 
     if (difference > tokenInfo.expiresIn) {
@@ -58,9 +74,8 @@ export const AuthContextProvider = ({ children }) => {
         refreshToken: refreshTokenParam,
       })
       .then((res) => {
-        setAccessToken(res.data.accessToken);
-        setExpiresIn(res.data.expiresIn);
-        setIsLogin(true);
+        const { accessToken, expiresIn } = res.data;
+        onRefreshToken({ accessToken, expiresIn });
       })
       .catch(() => {
         window.location = "/";
@@ -84,7 +99,7 @@ export const AuthContextProvider = ({ children }) => {
   }, [refreshToken, expiresIn]);
 
   return (
-    <authContext.Provider value={{ accessToken, login, isLogin }}>
+    <authContext.Provider value={{ accessToken, isLogin, login }}>
       {children}
     </authContext.Provider>
   );
